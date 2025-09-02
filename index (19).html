@@ -1,0 +1,315 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Service Representative | Portfolio</title>
+  <style>
+    :root{
+      --bg:#0f172a;          /* slate-900 */
+      --panel:#111827;       /* gray-900 */
+      --muted:#94a3b8;       /* slate-400 */
+      --text:#e5e7eb;        /* gray-200 */
+      --brand:#22c55e;       /* green-500 */
+      --brand-2:#38bdf8;     /* sky-400 */
+      --accent:#f59e0b;      /* amber-500 */
+      --danger:#ef4444;      /* red-500 */
+      --ok:#10b981;          /* emerald-500 */
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial; 
+      background: radial-gradient(1200px 800px at 80% -10%, rgba(56,189,248,.12), transparent),
+                  radial-gradient(900px 700px at 10% 110%, rgba(34,197,94,.12), transparent),
+                  var(--bg);
+      color:var(--text); line-height:1.6;
+    }
+    a{color:var(--brand-2); text-decoration:none}
+    a:hover{text-decoration:underline}
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:1000; backdrop-filter:blur(8px);
+      background:linear-gradient(180deg, rgba(17,24,39,.9), rgba(17,24,39,.6));
+      border-bottom:1px solid rgba(148,163,184,.15);
+    }
+    .nav{max-width:1100px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:10px 16px}
+    .brand{display:flex; gap:12px; align-items:center; font-weight:700}
+    .brand .logo{width:40px; height:40px; border-radius:50%; background:conic-gradient(from 220deg, var(--brand), var(--brand-2)); box-shadow:var(--shadow)}
+    nav ul{display:flex; list-style:none; gap:12px; padding:0; margin:0}
+    nav a{display:block; padding:10px 14px; border-radius:12px}
+    nav a:hover{background:rgba(148,163,184,.12)}
+    .cta{background:var(--brand); color:#062c18; font-weight:700}
+    .cta:hover{filter:brightness(1.1); text-decoration:none}
+    .toggle{border:1px solid rgba(148,163,184,.25); border-radius:12px; padding:8px 12px; cursor:pointer}main{max-width:1100px; margin:auto; padding:24px;}
+
+/* Hero */
+.hero{display:grid; grid-template-columns:1.2fr .8fr; gap:24px; align-items:center; padding:40px 0}
+.hero-card{background:linear-gradient(180deg, rgba(34,197,94,.08), rgba(56,189,248,.08)); border:1px solid rgba(148,163,184,.2); border-radius:var(--radius); padding:28px; box-shadow:var(--shadow)}
+.hero h1{font-size:clamp(28px, 4vw, 46px); line-height:1.15; margin:0 0 8px}
+.subtitle{color:var(--muted); margin:0 0 16px}
+.badges{display:flex; flex-wrap:wrap; gap:10px}
+.badge{padding:6px 10px; border-radius:999px; background:#0b1220; border:1px solid rgba(148,163,184,.25); color:#c7d2fe; font-size:12px}
+.kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:18px}
+.kpi{background:#0b1220; border:1px solid rgba(148,163,184,.2); border-radius:14px; padding:14px; text-align:center}
+.kpi strong{display:block; font-size:22px}
+
+.portrait{background:linear-gradient(145deg, rgba(245,158,11,.15), rgba(56,189,248,.15)); border:1px solid rgba(148,163,184,.25); border-radius:var(--radius); aspect-ratio:1/1; display:grid; place-items:center; box-shadow:var(--shadow)}
+.portrait-inner{width:70%; height:70%; border-radius:50%; background:radial-gradient(circle at 30% 30%, #fff, #ddd 30%, #bbb 60%, #999); box-shadow:inset 0 0 30px rgba(0,0,0,.25)}
+
+/* Section blocks */
+section{margin:36px 0}
+.section-title{display:flex; align-items:center; gap:10px; margin:0 0 14px}
+.section-title span{width:10px; height:10px; border-radius:3px; background:linear-gradient(180deg, var(--brand), var(--brand-2))}
+
+.grid{display:grid; gap:16px}
+.grid.cols-3{grid-template-columns:repeat(3,1fr)}
+.grid.cols-2{grid-template-columns:repeat(2,1fr)}
+
+.card{background:var(--panel); border:1px solid rgba(148,163,184,.2); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+.card h3{margin:0 0 6px}
+.muted{color:var(--muted)}
+
+/* Skills */
+.skill{display:flex; align-items:center; justify-content:space-between; gap:12px}
+.bar{flex:1; height:10px; background:#0b1220; border:1px solid rgba(148,163,184,.2); border-radius:999px; position:relative; overflow:hidden}
+.bar::after{content:""; position:absolute; inset:0; width:var(--val); background:linear-gradient(90deg, var(--brand), var(--brand-2));}
+
+/* Timeline */
+.timeline{position:relative; padding-left:22px}
+.timeline::before{content:""; position:absolute; left:8px; top:0; bottom:0; width:2px; background:linear-gradient(var(--brand), var(--brand-2))}
+.step{position:relative; margin:12px 0; padding-left:8px}
+.step::before{content:""; position:absolute; left:-14px; top:6px; width:12px; height:12px; border-radius:50%; background:var(--accent)}
+
+/* Projects */
+.tags{display:flex; gap:6px; flex-wrap:wrap}
+.tag{font-size:12px; padding:4px 8px; border-radius:999px; border:1px solid rgba(148,163,184,.25); background:#0b1220}
+
+/* FAQ */
+details{background:var(--panel); border:1px solid rgba(148,163,184,.2); border-radius:12px; padding:12px}
+details+details{margin-top:10px}
+summary{cursor:pointer; font-weight:600}
+
+/* Contact */
+form{display:grid; gap:10px}
+input, textarea{width:100%; padding:12px; border-radius:12px; border:1px solid rgba(148,163,184,.25); background:#0b1220; color:var(--text)}
+.inline{display:flex; gap:10px}
+button{padding:12px 16px; border-radius:12px; border:none; cursor:pointer; font-weight:700}
+.btn-primary{background:var(--brand)}
+.btn-ghost{background:transparent; border:1px solid rgba(148,163,184,.3); color:var(--text)}
+
+/* Footer */
+footer{padding:28px 16px; text-align:center; color:var(--muted)}
+
+/* Responsive */
+@media (max-width: 900px){
+  .hero{grid-template-columns:1fr;}
+  .grid.cols-3{grid-template-columns:1fr}
+  .grid.cols-2{grid-template-columns:1fr}
+  .inline{flex-direction:column}
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand"><div class="logo" aria-hidden="true"></div>
+      <p>KAVIYA</p>
+      <span>Welcome to Customer Service – Portfolio</span></div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact" class="cta">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="toggle" id="themeToggle" title="Toggle high-contrast">🌓</button>
+    </div>
+  </header>  <main>
+    <!-- HERO -->
+    <section class="hero" aria-label="Intro">
+      <div class="hero-card">
+        <p class="subtitle">Hi, I’m <strong>kaviya</strong> — Customer Service Representative</p>
+        <h1>Empathetic support that turns issues into ⭐ loyal customers</h1>
+        <p class="muted">I specialize in ticket triage, de‑escalation, and customer education across email, chat, and phone. I use data to reduce handling time while keeping CSAT high.</p>
+        <div class="badges" aria-label="Highlights">
+          <span class="badge">CSAT 95%+</span>
+          <span class="badge">AHT ↓ 18%</span>
+          <span class="badge">First‑Contact Resolution ↑</span>
+          <span class="badge">Zendesk • Freshdesk • CRM</span>
+        </div>
+        <div class="kpis" role="group" aria-label="Key metrics">
+          <div class="kpi"><strong>95%</strong><span class="muted">CSAT</span></div>
+          <div class="kpi"><strong>1m 45s</strong><span class="muted">Avg. First Reply</span></div>
+          <div class="kpi"><strong>85%</strong><span class="muted">FCR</span></div>
+        </div>
+        <div style="margin-top:16px; display:flex; gap:10px">
+          <a class="btn-ghost" href="#projects">View Projects</a>
+          <a class="btn-primary" href="#contact" style="text-decoration:none">Hire Me</a>
+        </div>
+      </div>
+      <div class="portrait" aria-hidden="true"><div class="portrait-inner"></div></div>
+    </section><!-- ABOUT -->
+<section id="about">
+  <h2 class="section-title"><span></span> About Me</h2>
+  <div class="grid cols-2">
+    <div class="card">
+      <p>I am kaviya, i will create by Cybersecurity Analyst have created a coding for portfolio. I am preparing for Naan mudhalvan class.</p>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2 class="section-title"><span></span> Skills</h2>
+  <div class="grid cols-2">
+    <div class="card">
+      <div class="skill"><span>HTML</span></div>
+      <div class="skill"><span>CSS</span></div>
+      <div class="skill"><span>JavaScript</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS / CASE STUDIES -->
+<section id="projects">
+  <h2 class="section-title"><span></span> Projects</h2>
+    <p>HTML STATISTICS</p>
+    <p>CSS FILES</p>
+    <p>JAVASCRIPT</p>
+
+  <div class="inline" style="margin-top:10px">
+    <input id="search" placeholder="Filter projects (e.g., KB, Zendesk, tone)…" aria-label="Search projects"/>
+    <button class="btn-ghost" id="resetFilter">Reset</button>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <h2 class="section-title"><span></span> Testimonials</h2>
+  <div class="grid cols-3">
+    <div class="card">
+      <p>“Handled a complex billing issue with patience and clarity. Saved the account.”</p>
+      <p class="muted">— Team Lead, Acme SaaS</p>
+    </div>
+    <div class="card">
+      <p>“Excellent tone and fast replies. Customers ask for them by name.”</p>
+      <p class="muted">— Supervisor, ShopEase</p>
+    </div>
+    <div class="card">
+      <p>“Knowledge base articles are crisp and actionable. Big deflection win.”</p>
+      <p class="muted">— Product Manager</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <h2 class="section-title"><span></span> FAQ</h2>
+  <details>
+    <summary>What tools do you use daily?</summary>
+    <p>Zendesk, Freshdesk, Intercom, HubSpot CRM, Google Workspace, Slack, Loom.</p>
+  </details>
+  <details>
+    <summary>What’s your support philosophy?</summary>
+    <p>Listen first, clarify the goal, set expectations, solve quickly, and follow up with next steps and documentation.</p>
+  </details>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2 class="section-title"><span></span> Contact</h2>
+  <div class="grid cols-2">
+    <div class="card">
+      <form id="contactForm" novalidate>
+        <div class="inline">
+          <input type="text" id="name" placeholder="Your name" required />
+          <input type="email" id="email" placeholder="Email" required />
+        </div>
+        <textarea id="message" rows="5" placeholder="How can I help?" required></textarea>
+        <div class="inline">
+          <button type="submit" class="btn-primary">Send Message</button>
+          <button type="button" class="btn-ghost" id="copyEmail">Copy Email</button>
+        </div>
+        <p id="formMsg" class="muted" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+    <div class="card">
+      <h3>Availability</h3>
+      <p class="muted">Open to full‑time, hybrid or remote roles. Timezone: IST (UTC+5:30).</p>
+      <h3 style="margin-top:10px">Links</h3>
+      <ul>
+        <li><a href="#" aria-label="Your email">Phone = Veerakaviya555@gmail.Com</a></li>
+        <li><a href="#" aria-label="Your Phone no">Phone = 7094297918</a></li>
+      </ul>
+    </div>
+    </div>
+</section>
+
+  </main>  <footer>
+    © <span id="year"></span> kaviya • Customer Service Representative • Built with HTML, CSS & JS
+  </footer>  <script>
+    // Smooth scroll for in‑page links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        if(id.length>1){ e.preventDefault(); document.querySelector(id).scrollIntoView({behavior:'smooth'}); }
+      });
+    });
+
+    // Theme toggle: switch accent order for a quick high‑contrast mode
+    const btn = document.getElementById('themeToggle');
+    let high = false;
+    btn.addEventListener('click', ()=>{
+      high = !high;
+      document.documentElement.style.setProperty('--brand', high ? '#38bdf8' : '#22c55e');
+      document.documentElement.style.setProperty('--brand-2', high ? '#22c55e' : '#38bdf8');
+      btn.textContent = high ? '🌗' : '🌓';
+    });
+
+    // Project filter
+    const search = document.getElementById('search');
+    const reset = document.getElementById('resetFilter');
+    const projects = [...document.querySelectorAll('#projectGrid .card')];
+    const filter = () => {
+      const q = search.value.trim().toLowerCase();
+      projects.forEach(card=>{
+        card.style.display = card.textContent.toLowerCase().includes(q) ? '' : 'none';
+      });
+    };
+    search.addEventListener('input', filter);
+    reset.addEventListener('click', ()=>{ search.value=''; filter(); });
+
+    // Contact form validation and mailto fallback
+    const form = document.getElementById('contactForm');
+    const msg = document.getElementById('formMsg');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const body = document.getElementById('message').value.trim();
+      if(!name || !email || !body){
+        msg.textContent = 'Please fill in all fields.';
+        msg.style.color = getComputedStyle(document.documentElement).getPropertyValue('--danger');
+        return;
+      }
+      const mailto = `mailto:you@example.com?subject=Portfolio%20Contact%20from%20${encodeURIComponent(name)}&body=${encodeURIComponent(body + '\n\nFrom: ' + name + ' (' + email + ')')}`;
+      window.location.href = mailto;
+      msg.textContent = 'Opening your email app…';
+      msg.style.color = getComputedStyle(document.documentElement).getPropertyValue('--ok');
+      form.reset();
+    });
+
+    // Copy email button
+    document.getElementById('copyEmail').addEventListener('click', async ()=>{
+      const email = 'you@example.com';
+      try{ await navigator.clipboard.writeText(email); msg.textContent = 'Email copied to clipboard'; msg.style.color = getComputedStyle(document.documentElement).getPropertyValue('--ok'); }
+      catch{ msg.textContent = 'Could not copy email'; msg.style.color = getComputedStyle(document.documentElement).getPropertyValue('--danger'); }
+    });
+
+    // Year footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script></body>
+</html>
